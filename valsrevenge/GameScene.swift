@@ -15,14 +15,35 @@ class GameScene: SKScene {
     
     private var lastUpdateTime : TimeInterval = 0
     
+    private var player: Player?
+    
     override func sceneDidLoad() {
 
         self.lastUpdateTime = 0
         
     }
     
+    override func didMove(to view: SKView) {
+        // Using the variable name
+        player = childNode(withName: "player") as? Player
+        // alternatively, using the class name
+        // This does not work
+        //player = childNode(withName: "Player") as? Player
+
+        player?.move(.stop)
+    }
     
     func touchDown(atPoint pos : CGPoint) {
+        let nodeAtPoint = atPoint(pos)
+        if let touchedNode = nodeAtPoint as? SKSpriteNode {
+            if touchedNode.name?.starts(with: "controller_") == true {
+                let direction = touchedNode.name?.replacingOccurrences(of: "controller_", with: "")
+//                print("direction: \(direction)")
+//                player?.move(.left)
+//                player?.move(Direction(rawValue: direction!)!)
+                player?.move(Direction(rawValue: direction ?? "stop")!)
+            }
+        }
     }
     
     func touchMoved(toPoint pos : CGPoint) {

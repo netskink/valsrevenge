@@ -16,6 +16,10 @@ class GameViewController: UIViewController {
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
         // including entities and graphs.
+        // Without gamekit, this would be:
+        // GameScene(size:)
+        // instead of
+        // GKScene(fileNamed:)
         if let scene = GKScene(fileNamed: "GameScene") {
             
             // Get the SKScene from the loaded GKScene
