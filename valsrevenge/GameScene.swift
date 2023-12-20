@@ -8,7 +8,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, GameViewControllerDelegate {
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -16,6 +16,8 @@ class GameScene: SKScene {
     private var lastUpdateTime : TimeInterval = 0
     
     private var player: Player?
+    
+    let margin: CGFloat = 20.0
     
     override func sceneDidLoad() {
 
@@ -31,7 +33,30 @@ class GameScene: SKScene {
         //player = childNode(withName: "Player") as? Player
 
         player?.move(.stop)
+        
+        setupCamera()
     }
+    
+    func didChangeLayout() {
+        let w = view?.bounds.size.width ?? 1024
+        let h = view?.bounds.size.height ?? 1336
+        
+        if h >= w { // portrait, which matches the design
+            camera?.setScale(1.0)
+        } else { // helps to keep reative size
+            // larger numbers results in "smaller" scenes
+            camera?.setScale(1.25)
+        }
+    }
+    
+    func setupCamera() {
+        guard let player = player else { return }
+        let distance = SKRange(constantValue: 0)
+        let playerConstraint = SKConstraint.distance(distance, to: player)
+        
+        camera?.constraints = [playerConstraint]
+    }
+    
     
     func touchDown(atPoint pos : CGPoint) {
         let nodeAtPoint = atPoint(pos)
@@ -102,5 +127,19 @@ class GameScene: SKScene {
         }
         
         self.lastUpdateTime = currentTime
+    }
+    
+    override func didFinishUpdate() {
+        updateControllerLocation()
+    }
+    
+    func updateControllerLocation() {
+        let controller = childNode(withName: "//controller")
+        controller?.position = CGPoint(x: viewLeft + margin, 
+                                       y: viewBottom + margin)
+        
+        let attackButton = childNode(withName: "//attackButton")
+        attackButton?.position = CGPoint(x: viewRight - margin,
+                                         y: viewBottom + margin)
     }
 }
