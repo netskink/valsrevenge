@@ -8,7 +8,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene, GameViewControllerDelegate {
+class GameScene: SKScene {
     
     var entities = [GKEntity]()
     var graphs = [String : GKGraph]()
@@ -37,17 +37,17 @@ class GameScene: SKScene, GameViewControllerDelegate {
         setupCamera()
     }
     
-    func didChangeLayout() {
-        let w = view?.bounds.size.width ?? 1024
-        let h = view?.bounds.size.height ?? 1336
-        
-        if h >= w { // portrait, which matches the design
-            camera?.setScale(1.0)
-        } else { // helps to keep reative size
-            // larger numbers results in "smaller" scenes
-            camera?.setScale(1.25)
-        }
-    }
+//    func didChangeLayout() {
+//        let w = view?.bounds.size.width ?? 1024
+//        let h = view?.bounds.size.height ?? 1336
+//        
+//        if h >= w { // portrait, which matches the design
+//            camera?.setScale(1.0)
+//        } else { // helps to keep reative size
+//            // larger numbers results in "smaller" scenes
+//            camera?.setScale(1.25)
+//        }
+//    }
     
     func setupCamera() {
         guard let player = player else { return }
@@ -135,11 +135,11 @@ class GameScene: SKScene, GameViewControllerDelegate {
     
     func updateControllerLocation() {
         let controller = childNode(withName: "//controller")
-        controller?.position = CGPoint(x: viewLeft + margin, 
-                                       y: viewBottom + margin)
+        controller?.position = CGPoint(x: viewLeft + margin + insets.left,
+                                       y: viewBottom + margin + insets.bottom)
         
         let attackButton = childNode(withName: "//attackButton")
-        attackButton?.position = CGPoint(x: viewRight - margin,
-                                         y: viewBottom + margin)
+        attackButton?.position = CGPoint(x: viewRight - margin - insets.right,
+                                         y: viewBottom + margin + insets.bottom)
     }
 }

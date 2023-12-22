@@ -25,4 +25,8 @@ extension SKScene {
         return convertPoint(fromView: CGPoint(x: view.bounds.size.width,
                                               y: 0)).x
     }
+    
+    var insets: UIEdgeInsets {
+        return UIApplication.shared.delegate?.window??.safeAreaInsets ?? .zero
+    }
 }
