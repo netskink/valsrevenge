@@ -26,6 +26,15 @@ class GameScene: SKScene {
     }
     
     override func didMove(to view: SKView) {
+        
+        
+        let grassMapNode = childNode(withName: "Grass Tile Map") as? SKTileMapNode
+        grassMapNode?.setupEdgeLoop()
+        
+        let dungeonMapNode = childNode(withName: "Dungeon Tile Map") as? SKTileMapNode
+        dungeonMapNode?.setupMapPhysics()
+
+        
         // Using the variable name
         player = childNode(withName: "player") as? Player
         // alternatively, using the class name
