@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721159242B3E634D006F23C5 /* MonsterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721159232B3E634D006F23C5 /* MonsterEntity.swift */; };
+		721159262B3E63D6006F23C5 /* RenderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721159252B3E63D6006F23C5 /* RenderComponent.swift */; };
+		721159282B3E65F4006F23C5 /* GeneratorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721159272B3E65F4006F23C5 /* GeneratorComponent.swift */; };
+		7211592A2B3E6671006F23C5 /* GKComponent+Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721159292B3E6671006F23C5 /* GKComponent+Node.swift */; };
 		7264D7D02B2D244B008AA6C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7264D7CF2B2D244B008AA6C0 /* AppDelegate.swift */; };
 		7264D7D22B2D244B008AA6C0 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 7264D7D12B2D244B008AA6C0 /* GameScene.sks */; };
 		7264D7D62B2D244B008AA6C0 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7264D7D52B2D244B008AA6C0 /* GameScene.swift */; };
@@ -39,6 +43,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		721159232B3E634D006F23C5 /* MonsterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterEntity.swift; sourceTree = "<group>"; };
+		721159252B3E63D6006F23C5 /* RenderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderComponent.swift; sourceTree = "<group>"; };
+		721159272B3E65F4006F23C5 /* GeneratorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneratorComponent.swift; sourceTree = "<group>"; };
+		721159292B3E6671006F23C5 /* GKComponent+Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GKComponent+Node.swift"; sourceTree = "<group>"; };
 		7264D7CC2B2D244B008AA6C0 /* valsrevenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = valsrevenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7264D7CF2B2D244B008AA6C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7264D7D12B2D244B008AA6C0 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -82,6 +90,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		721159222B3E6310006F23C5 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				7267ABD62B2F34C8000EFFF2 /* Player.swift */,
+				721159232B3E634D006F23C5 /* MonsterEntity.swift */,
+				721159252B3E63D6006F23C5 /* RenderComponent.swift */,
+				721159272B3E65F4006F23C5 /* GeneratorComponent.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		7264D7C32B2D244B008AA6C0 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +120,7 @@
 		7264D7CE2B2D244B008AA6C0 /* valsrevenge */ = {
 			isa = PBXGroup;
 			children = (
+				721159222B3E6310006F23C5 /* Entities */,
 				72CB23832B37D980004C6C2B /* Components */,
 				7264D7D72B2D244B008AA6C0 /* GameViewController.swift */,
 				7264D7DC2B2D244C008AA6C0 /* Assets.xcassets */,
@@ -111,7 +131,6 @@
 				72CB23662B37D435004C6C2B /* Scenes */,
 				72CB23632B37D33C004C6C2B /* Extensions */,
 				7264D7CF2B2D244B008AA6C0 /* AppDelegate.swift */,
-				7267ABD62B2F34C8000EFFF2 /* Player.swift */,
 				7264D7D92B2D244B008AA6C0 /* Main.storyboard */,
 				7264D7DE2B2D244C008AA6C0 /* LaunchScreen.storyboard */,
 			);
@@ -124,6 +143,7 @@
 				72BFBDF52B328F36004EEC68 /* SKScene+ViewProperties.swift */,
 				72C164092B37255600B021DE /* SKTileMapNode+Physics.swift */,
 				72C164052B351CF000B021DE /* GameScene+ViewUpdates.swift */,
+				721159292B3E6671006F23C5 /* GKComponent+Node.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -279,14 +299,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				72C1640A2B37255600B021DE /* SKTileMapNode+Physics.swift in Sources */,
+				721159282B3E65F4006F23C5 /* GeneratorComponent.swift in Sources */,
 				7267ABD72B2F34C8000EFFF2 /* Player.swift in Sources */,
 				72CB23852B37D9BC004C6C2B /* HealthComponent.swift in Sources */,
+				7211592A2B3E6671006F23C5 /* GKComponent+Node.swift in Sources */,
 				72BFBDF62B328F36004EEC68 /* SKScene+ViewProperties.swift in Sources */,
 				72CB237F2B37D8F3004C6C2B /* SoundLibrary.swift in Sources */,
 				7264D7D62B2D244B008AA6C0 /* GameScene.swift in Sources */,
 				7264D7D82B2D244B008AA6C0 /* GameViewController.swift in Sources */,
 				72C164062B351CF000B021DE /* GameScene+ViewUpdates.swift in Sources */,
+				721159262B3E63D6006F23C5 /* RenderComponent.swift in Sources */,
 				7264D7D02B2D244B008AA6C0 /* AppDelegate.swift in Sources */,
+				721159242B3E634D006F23C5 /* MonsterEntity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

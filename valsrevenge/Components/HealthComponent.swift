@@ -18,15 +18,15 @@ class HealthComponent: GKComponent {
     
     
     override func didAddToEntity() {
-        guard let node = entity?.component(ofType: GKSKNodeComponent.self)?.node
-        else {
-            return
-        }
+//        guard let node = entity?.component(ofType: GKSKNodeComponent.self)?.node
+//        else {
+//            return
+//        }
         
         if let healthMeter = SKReferenceNode(fileNamed: "HealthMeter") {
             healthMeter.position = CGPoint(x: 0, y: 100)
-            node.addChild(healthMeter)
-            updateHealth(0, forNode: node)
+            componentNode.addChild(healthMeter)
+            updateHealth(0, forNode: componentNode)
         }
     }
 
@@ -49,12 +49,12 @@ class HealthComponent: GKComponent {
     }
     
     func setupBar(at num: Int, tint: SKColor? = nil) {
-        guard let node = entity?.component(ofType: GKSKNodeComponent.self)?.node
-        else {
-            return
-        }
+//        guard let node = entity?.component(ofType: GKSKNodeComponent.self)?.node
+//        else {
+//            return
+//        }
         
-        if let health = node.childNode(withName: ".//health_\(num)")
+        if let health = componentNode.childNode(withName: ".//health_\(num)")
             as? SKSpriteNode {
             if currentHealth >= num {
                 health.texture = healthFull
